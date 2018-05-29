@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<!-- formulaire pour choix de la couleur et nom couleur -->
+    <form name="premier" action="index.html" method="post">
+    <label for="couleur">couleur</label>
+    <input type="color" name="couleur" id="couleur" value="">
+    <label for="nombre">Nom couleur</label>
+    <input type="text" name="nombre" id="nom" value="">
+    <a href=exercice1_2page2.html><input type="button" id="suivant" name="" value="page suivante"></a>
+    <input type="button" id="compt" name="" value="compt">
+    </form>
+
+    <p id=paragraphe></p>
+
+    <script type="text/javascript">
+
+
+       //local storage
+
+
+
+// fonction pour afficher et enregistrer les 2 value des input 'couleur' et "nom"
+       var c=document.getElementById('compt');
+       c.addEventListener("click",affiche)
+
+      function affiche()
+{
+
+      var couleur=document.forms["premier"].couleur.value;
+      var Nomcouleur=document.forms["premier"].nom.value;
+      localStorage.setItem("couleur",couleur);
+      localStorage.setItem("Nomcouleur",Nomcouleur);
+
+  };
+
+
+   // fonction pour compter le nombre de clicks sur le boutton
+     document.getElementById('paragraphe').innerHTML = 'Nombre de clicks:'+localStorage.getItem('compteur');
+      var c=document.getElementById('compt');
+      c.addEventListener("click",comptage)
+
+      function comptage()
+{
+
+      if (localStorage.getItem('compteur')==0)
+{
+      var compteur=0;
+      ++compteur;
+      localStorage.setItem('compteur',compteur);
+}
+      else
+{
+      var compteur=localStorage.getItem('compteur');
+      ++compteur;
+      localStorage.setItem('compteur',compteur);
+
+}};
+
+      var c=document.getElementById('compt');
+      c.addEventListener("click",affichage)
+
+      function affichage()
+{
+      document.getElementById('paragraphe').innerHTML = 'Nombre de clicks:'+localStorage.getItem('compteur');
+
+}
+;
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

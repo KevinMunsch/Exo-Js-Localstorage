@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <!--zone d'édition-->
+<aside>
+  <form class="premier" action="index.html" method="post">
+    <!-- 2 boutons 'nom' et 'valeur'-->
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" name="nom" value="">
+    <label for="valeur">Valeur</label>
+    <input type="text" name="valeur" id="valeur" value="">
+    <!-- 4 boutons en dessous des champs ecrire/lire/effacer/reinit.-->
+    <button type="button" name="" id="ecrire">écrire</button>
+    <button type="button" name="" id="lire">lire</button>
+    <button type="button" name="" id="effacer">effacer</button>
+    <button type="button" name="" id="reinitialise">réinitialiser</button>
+  </form>
+<aside>
+
+  <!--zone de previsualisation-->
+<main>
+
+<p id="paragraphe"></p>
+
+</main>
+
+  <!-- script localstorage-->
+<script type="text/javascript">
+
+// stockage value des inputs 'nom' et 'valeur'
+
+var a=document.getElementById('ecrire');
+a.addEventListener("click",stocker)
+
+function stocker()
+{
+
+var nom=document.getElementById("nom").value;
+var valeur=document.getElementById('valeur').value;
+localStorage.setItem("nom",nom);
+localStorage.setItem("valeur",valeur);
+
+};
+
+// affichage value des inputs 'nom' et valeur dans zone de prévisualisation
+
+var b=document.getElementById('lire');
+b.adEventListener("click",afficher)
+
+function afficher()
+{
+
+document.getElementById('paragraphe').innerHTML =  localStorage.getItem('nom')+localStorage.getItem('valeur');
+
+}
+
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
