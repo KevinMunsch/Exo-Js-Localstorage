@@ -42,22 +42,22 @@ function stocker()
 
 var nom=document.getElementById("nom").value;
 var valeur=document.getElementById('valeur').value;
-localStorage.setItem("nom",nom);
-localStorage.setItem("valeur",valeur);
+localStorage.setItem(nom,valeur);
+
 
 };
 
 // affichage value des inputs 'nom' et valeur dans zone de prévisualisation
 
-var b=document.getElementById('lire');
-b.adEventListener("click",afficher)
+var a=document.getElementById('lire');
+a.addEventListener("click",afficher)
 
 function afficher()
 {
 
-document.getElementById('paragraphe').innerHTML =  localStorage.getItem('nom')+localStorage.getItem('valeur');
+  document.getElementById('paragraphe').innerHTML=localStorage.getItem(localStorage.key(0))+localStorage.key(0);
 
-}
+};
 
 
 </script>
